@@ -1,0 +1,19 @@
+.tab-main {
+  max-width: 50%;
+  margin: auto;
+  padding: 20px;
+  font-family: monospace;
+  border: 1px dashed #aaa;
+  display: flex;
+  flex-direction: row;
+}
+
+.fret:hover {
+  background-color: #aaa;
+  color: #282c34;
+}
+
+.fret.selected {
+  background-color: #fff;
+  color: #282c34;
+}
