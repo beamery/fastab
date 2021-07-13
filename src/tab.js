@@ -1,6 +1,8 @@
 import React from 'react';
 import './tab.css';
 
+const EMPTY_BEAT = [null, null, null, null, null, null];
+
 class Fret extends React.Component {
   getValue() {
     if (this.isSelected() && this.props.selection.pendingValue) {
@@ -68,7 +70,7 @@ class Tab extends React.Component {
 
     const beats = [];
     for (let i = 0; i < 60; i++) {
-      addNewBeat(beats);
+      beats.push([...EMPTY_BEAT]);
     }
     this.state = {
       beats,
@@ -160,7 +162,7 @@ class Tab extends React.Component {
     let beats = this.cloneBeats();
     if (beat >= this.state.beats.length) {
       // Need to add a new beat.
-      addNewBeat(beats);
+      beats.push([...EMPTY_BEAT]);
     }
     this.setState({
       selection:  {beat, fret},
@@ -192,10 +194,6 @@ class Tab extends React.Component {
     window.removeEventListener('keydown', this.keyDownListener);
     window.removeEventListener('keypress', this.keyPressedListener);
   }
-}
-
-function addNewBeat(beats) {
-  beats.push([null, null, null, null, null, null])
 }
 
 function isArrowKey(keyCode) {
