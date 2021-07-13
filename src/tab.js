@@ -72,8 +72,6 @@ class Tab extends React.Component {
     for (let i = 0; i < 60; i++) {
       beats.push([...EMPTY_BEAT]);
     }
-    // TODO: Add ability to select multiple beats.
-    // TODO: Add ability to annotate a beat range.
     this.state = {
       beats,
       selection: {
